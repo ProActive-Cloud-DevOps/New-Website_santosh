@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: nnksantosh/portfolio:a64ca85be611774577fc3ae88e16c2fb1d5f88c0
+        image: nnksantosh/portfolio:e193992c16e16074e39b1e80fbae44edb93669a5
         ports:
         - containerPort: 80
