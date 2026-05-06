@@ -11,11 +11,11 @@ spec:
 
   tls:
   - hosts:
-    - portfolio.yourdomain.com
+    - mywebapage.site
     secretName: portfolio-tls
 
   rules:
-  - host: portfolio.yourdomain.com
+  - host: mywebapage.site
     http:
       paths:
       - path: /
