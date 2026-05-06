@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: DOCKER_USERNAME/portfolio:IMAGE_TAG
+        image: nnksantosh/portfolio:latest
         ports:
         - containerPort: 80
