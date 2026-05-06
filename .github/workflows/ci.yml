@@ -29,4 +29,4 @@ jobs:
           file: docker/Dockerfile
           push: true
           platforms: linux/amd64
-          tags: ${{ secrets.DOCKER_USERNAME }}/portfolio:github
+          tags: ${{ secrets.DOCKER_USERNAME }}/portfolio:v1
