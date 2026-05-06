@@ -16,6 +16,8 @@ spec:
         app: portfolio
 
     spec:
+      imagePullSecrets:
+      - name: dockerhub-secret
       containers:
       - name: portfolio
         image: nnksantosh/portfolio:v2
