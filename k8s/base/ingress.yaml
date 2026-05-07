@@ -1,18 +1,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
+
 metadata:
   name: portfolio-ingress
   namespace: portfolio
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
 
 spec:
   ingressClassName: nginx
-
-  tls:
-  - hosts:
-    - mywebapage.site
-    secretName: portfolio-tls
 
   rules:
   - host: mywebapage.site
@@ -25,3 +19,33 @@ spec:
             name: portfolio-service
             port:
               number: 80
+
+
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: portfolio-ingress
+#   namespace: portfolio
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt-prod
+
+# spec:
+#   ingressClassName: nginx
+
+#   tls:
+#   - hosts:
+#     - mywebapage.site
+#     secretName: portfolio-tls
+
+#   rules:
+#   - host: mywebapage.site
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: portfolio-service
+#             port:
+#               number: 80

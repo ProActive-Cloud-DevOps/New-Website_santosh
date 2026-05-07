@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: nnksantosh/portfolio:latest
+        image: nnksantosh/portfolio:785216ccd609a413e7316b4f2640a791cb8adb6e
         imagePullPolicy: Always
         ports:
         - containerPort: 80
