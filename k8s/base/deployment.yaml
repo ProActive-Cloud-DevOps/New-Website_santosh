@@ -16,11 +16,8 @@ spec:
         app: portfolio
 
     spec:
-      imagePullSecrets:
-      - name: dockerhub-secret
       containers:
       - name: portfolio
-        image: nnksantosh/portfolio:v3
-        imagePullPolicy: Always
+        image: DOCKER_USERNAME/portfolio:IMAGE_TAG
         ports:
         - containerPort: 80
