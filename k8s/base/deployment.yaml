@@ -20,7 +20,7 @@ spec:
       - name: dockerhub-secret
       containers:
       - name: portfolio
-        image: nnksantosh/portfolio:v2
+        image: nnksantosh/portfolio:v3
         imagePullPolicy: Always
         ports:
         - containerPort: 80
