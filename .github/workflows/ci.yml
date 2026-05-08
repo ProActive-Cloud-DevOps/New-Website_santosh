@@ -23,11 +23,11 @@ jobs:
 
     - name: Build Image
       run: |
-        docker buildx build --platform linux/amd64 --no-cache -t ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }} -f docker/Dockerfile .
+        docker buildx build --platform linux/amd64 --no-cache -t ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}::latest .
 
     - name: Push Image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}::latest }
 
     - name: Replace Image Tag in K8s Manifest
       run: |

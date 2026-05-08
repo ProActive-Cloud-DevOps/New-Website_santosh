@@ -1,18 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: myspace-ingress
+  namespace: myspace-website
+
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
+spec:
+  tls:
+  - hosts:
+    - www.mywebapage.site
+    secretName: myspace-tls
+
+  rules:
+  - host: www.mywebapage.site
+
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+
+        backend:
+          service:
+            name: myspace-service
+            port:
+              number: 80
+
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
 # metadata:
-#   name: webpage-1-ingress
-#   namespace: webpage-1
+#   name: myspace-ingress
+#   namespace: myspace-website
 #   annotations:
+#     kubernetes.io/ingress.class: nginx
 #     cert-manager.io/cluster-issuer: letsencrypt-prod
-
 # spec:
-#   ingressClassName: nginx
-
 #   tls:
 #   - hosts:
 #     - mywebapage.site
-#     secretName: webpage-1-tls
+#     secretName: myspace-tls
 
 #   rules:
 #   - host: mywebapage.site
@@ -22,40 +51,6 @@
 #         pathType: Prefix
 #         backend:
 #           service:
-#             name: webpage-1-service
+#             name: myspace-service
 #             port:
 #               number: 80
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-
-metadata:
-  name: webpage-ingress
-  namespace: webpage-1
-
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-
-spec:
-  ingressClassName: nginx
-
-  tls:
-  - hosts:
-    - mywebapage.site
-    secretName: webpage-tls
-
-  rules:
-  - host: mywebapage.site
-
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-
-        backend:
-          service:
-            name: webpage-service
-
-            port:
-              number: 80

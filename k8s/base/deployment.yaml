@@ -1,50 +1,21 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: webpage-1
-#   namespace: webpage-1
-
-# spec:
-#   replicas: 2
-#   selector:
-#     matchLabels:
-#       app: webpage-1
-
-#   template:
-#     metadata:
-#       labels:
-#         app: webpage-1
-
-#     spec:
-#       containers:
-#       - name: webpage-1
-#         image: nnksantosh/webpage-1:c66ad7153db964566ff65b88060df24ce909f385
-#         imagePullPolicy: Always
-#         ports:
-#         - containerPort: 80
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
-  name: webpage-deployment
-  namespace: webpage-1
-
+  name: myspace-app
+  namespace: myspace-website
 spec:
-  replicas: 2
-
+  replicas: 1
   selector:
     matchLabels:
-      app: webpage
-
+      app: myspace-app
   template:
     metadata:
       labels:
-        app: webpage
-
+        app: myspace-app
     spec:
       containers:
-      - name: webpage
-        image: nginx:alpine
+      - name: myspace-app
+        image: nnksantosh/webpage-1:5455f9c71ff5ad606c269112b2ecc2275892aaef
 
         ports:
         - containerPort: 80
