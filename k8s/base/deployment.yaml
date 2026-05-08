@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: portfolio
-  namespace: portfolio
+  name: portfolio1
+  namespace: portfolio1
 
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: portfolio
+      app: portfolio1
 
   template:
     metadata:
       labels:
-        app: portfolio
+        app: portfolio1
 
     spec:
       containers:
-      - name: portfolio
-        image: nnksantosh/portfolio:785216ccd609a413e7316b4f2640a791cb8adb6e
+      - name: portfolio1
+        image: nnksantosh/portfolio1:2e3aeaea4c0c520464aea22c671536b42d80d20f
         imagePullPolicy: Always
         ports:
         - containerPort: 80
