@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 env:
-  IMAGE_NAME: portfolio1
+  IMAGE_NAME: webpage-1
 
 jobs:
   build:

@@ -1,32 +1,8 @@
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-
-# metadata:
-#   name: portfolio1-ingress
-#   namespace: portfolio1
-#   annotations:
-#     kubernetes.io/ingress.class: nginx
-
-# spec:
-#   ingressClassName: nginx
-
-#   rules:
-#   - host: mywebapage.site
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: portfolio1-service
-#             port:
-#               number: 80
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: portfolio1-ingress
-  namespace: portfolio1
+  name: webpage-1-ingress
+  namespace: webpage-1
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 
@@ -36,7 +12,7 @@ spec:
   tls:
   - hosts:
     - mywebapage.site
-    secretName: portfolio1-tls
+    secretName: webpage-1-tls
 
   rules:
   - host: mywebapage.site
@@ -46,6 +22,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: portfolio1-service
+            name: webpage-1-service
             port:
               number: 80
