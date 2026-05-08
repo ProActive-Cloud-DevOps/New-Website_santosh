@@ -1,24 +1,50 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: webpage-1
+#   namespace: webpage-1
+
+# spec:
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       app: webpage-1
+
+#   template:
+#     metadata:
+#       labels:
+#         app: webpage-1
+
+#     spec:
+#       containers:
+#       - name: webpage-1
+#         image: nnksantosh/webpage-1:c66ad7153db964566ff65b88060df24ce909f385
+#         imagePullPolicy: Always
+#         ports:
+#         - containerPort: 80
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
-  name: webpage-1
+  name: webpage-deployment
   namespace: webpage-1
 
 spec:
   replicas: 2
+
   selector:
     matchLabels:
-      app: webpage-1
+      app: webpage
 
   template:
     metadata:
       labels:
-        app: webpage-1
+        app: webpage
 
     spec:
       containers:
-      - name: webpage-1
-        image: nnksantosh/webpage-1:c66ad7153db964566ff65b88060df24ce909f385
-        imagePullPolicy: Always
+      - name: webpage
+        image: nginx:alpine
+
         ports:
         - containerPort: 80

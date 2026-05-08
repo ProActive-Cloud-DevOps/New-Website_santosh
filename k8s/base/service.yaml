@@ -1,13 +1,30 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: webpage-1-service
+#   namespace: webpage-1
+
+# spec:
+#   selector:
+#     app: webpage-1
+
+#   ports:
+#     - port: 80
+#       targetPort: 80
+
 apiVersion: v1
 kind: Service
+
 metadata:
-  name: webpage-1-service
+  name: webpage-service
   namespace: webpage-1
 
 spec:
   selector:
-    app: webpage-1
+    app: webpage
 
   ports:
-    - port: 80
-      targetPort: 80
+  - port: 80
+    targetPort: 80
+
+  type: ClusterIP
