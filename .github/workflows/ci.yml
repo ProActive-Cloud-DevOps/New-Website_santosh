@@ -74,13 +74,20 @@ jobs:
         kubectl apply -f k8s/base/service.yaml
         kubectl apply -f k8s/base/ingress.yaml
         kubectl apply -f k8s/base/deployment.yaml
-
-    # Restart Deployment
-    - name: Restart Deployment
+ 
+    - name: Update Kubernetes Image
       run: |
-        kubectl rollout restart deployment myspace-app -n myspace-website
+        kubectl set image deployment/myspace-app \
+          myspace-app=${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }} \
+          -n myspace-website        
+    # Restart Deployment
+    # - name: Restart Deployment
+    #   run: |
+    #     kubectl rollout restart deployment myspace-app -n myspace-website
 
     # Verify Deployment
     - name: Verify Deployment
       run: |
         kubectl get pods -n myspace-website
+
+        
