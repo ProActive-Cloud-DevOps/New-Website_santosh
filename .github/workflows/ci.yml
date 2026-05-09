@@ -35,6 +35,7 @@ jobs:
           --no-cache \
           -t ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }} \
           -t ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest \
+          -f docker/Dockerfile \
           --push .
 
     # Replace Docker Username
