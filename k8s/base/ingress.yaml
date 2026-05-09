@@ -28,29 +28,3 @@ spec:
             name: myspace-service
             port:
               number: 80
-
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: myspace-ingress
-#   namespace: myspace-website
-#   annotations:
-#     kubernetes.io/ingress.class: nginx
-#     cert-manager.io/cluster-issuer: letsencrypt-prod
-# spec:
-#   tls:
-#   - hosts:
-#     - mywebapage.site
-#     secretName: myspace-tls
-
-#   rules:
-#   - host: mywebapage.site
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: myspace-service
-#             port:
-#               number: 80

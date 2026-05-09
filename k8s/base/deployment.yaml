@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myspace-app
-        image: nnksantosh/webpage-1:5455f9c71ff5ad606c269112b2ecc2275892aaef
+        image: nnksantosh/webpage-1:974ebfbe274403a9556b41888239e90f94b16a2f
 
         ports:
         - containerPort: 80
