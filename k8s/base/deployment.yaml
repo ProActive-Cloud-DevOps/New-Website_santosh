@@ -21,7 +21,7 @@ spec:
       containers:
       - name: myspace-app
 
-        image: nnksantosh/webpage-1:09402cff380b24d0f0818a4c1ebf940eab15f310
+        image: nnksantosh/webpage-1:23619b6f2687cade807413c1e173784115bdabf6
 
         imagePullPolicy: Always
 
