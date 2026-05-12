@@ -61,6 +61,7 @@ jobs:
         git remote set-url origin https://x-access-token:${GH_PAT}@github.com/ProActive-Cloud-DevOps/New-Website_santosh.git
 
         git push origin HEAD:main
+        
 #--------------------------------------------------------Old
 
 # name: Build and Deploy to EKS
