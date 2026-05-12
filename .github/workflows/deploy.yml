@@ -43,11 +43,12 @@ jobs:
       run: |
         sed -i 's|DOCKER_USERNAME|${{ secrets.DOCKER_USERNAME }}|g' k8s/base/deployment.yaml
 
-    # Replace Image Tag
-    - name: Replace Image Tag
+    # Update Deployment Image
+    - name: Update Deployment Image
       run: |
-        sed -i 's|IMAGE_TAG|${{ github.sha }}|g' k8s/base/deployment.yaml
+        sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}|g" k8s/base/deployment.yaml
 
+    # Commit Updated Manifest
     - name: Commit Updated Manifest
       env:
         GH_PAT: ${{ secrets.GH_PAT }}
@@ -63,7 +64,6 @@ jobs:
         git remote set-url origin https://x-access-token:${GH_PAT}@github.com/ProActive-Cloud-DevOps/New-Website_santosh.git
 
         git push origin HEAD:main
-
 #--------------------------------------------------------Old
 
 # name: Build and Deploy to EKS
